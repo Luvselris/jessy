@@ -19,13 +19,18 @@
 
   <style>
     :root {
-      --primary-pink: #ff85a2;
-      --soft-pink: #ffb3c6;
-      --bg-pink: #fff0f3;
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --border-pink: #ffccd5;
-      --text-dark: #4a3b3e;
-      --text-muted: #8a7377;
+      /* โทนฟ้า-ชมพูพาสเทลตามภาพ */
+      --pastel-pink: #f9a8d4;
+      --pastel-blue: #a5f3fc;
+      --pastel-lavender: #c4b5fd;
+      --pastel-pink-deep: #f472b6;
+      --pastel-blue-deep: #38bdf8;
+      --card-glass: rgba(255, 255, 255, 0.92);
+      --border-pastel: #e0e7ff;
+      --border-pink-soft: #fbcfe8;
+      --text-dark: #3b354d;
+      --text-muted: #7c728e;
+      --glow-soft: 0 10px 30px rgba(244, 114, 182, 0.2), 0 4px 15px rgba(56, 189, 248, 0.15);
     }
 
     * {
@@ -44,16 +49,17 @@
       justify-content: center;
       padding: 26px 14px 60px;
       position: relative;
-      background: radial-gradient(circle at top, #ffe5ec 0%, #fff0f3 50%, #ffd6e0 100%);
+      /* พื้นหลังไล่เฉดฟ้าอมชมพูพาสเทลวิบวับ */
+      background: radial-gradient(circle at top left, #e0f2fe 0%, #fdf2f8 45%, #ede9fe 100%);
       overflow-x: hidden;
     }
 
-    /* Pop-up หน้าต้อนรับกรอบสีชมพู */
+    /* Pop-up หน้าต้อนรับกรอบสีชมพูเหลือบฟ้า */
     .enter-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(255, 229, 236, 0.96);
-      backdrop-filter: blur(10px);
+      background: rgba(240, 249, 255, 0.92);
+      backdrop-filter: blur(12px);
       z-index: 999999;
       display: flex;
       flex-direction: column;
@@ -73,8 +79,8 @@
       background: #ffffff;
       padding: 28px 24px;
       border-radius: 28px;
-      border: 2.5px solid var(--primary-pink);
-      box-shadow: 0 12px 35px rgba(255, 133, 162, 0.35);
+      border: 2px solid var(--pastel-pink);
+      box-shadow: var(--glow-soft);
       text-align: center;
       max-width: 320px;
       width: 85%;
@@ -87,20 +93,22 @@
     }
 
     .enter-icon {
-      width: 65px;
-      height: 65px;
-      border-radius: 18px;
+      width: 68px;
+      height: 68px;
+      border-radius: 20px;
       object-fit: cover;
       margin-bottom: 12px;
-      border: 1.5px solid var(--border-pink);
-      animation: gentleBounce 1.5s infinite ease-in-out;
+      border: 2px solid var(--pastel-blue);
+      box-shadow: 0 4px 14px rgba(165, 243, 252, 0.5);
+      animation: gentleBounce 1.6s infinite ease-in-out;
     }
 
     .enter-title {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 700;
-      color: var(--primary-pink);
+      color: var(--pastel-pink-deep);
       margin-bottom: 6px;
+      text-shadow: 0 1px 6px rgba(244, 114, 182, 0.25);
     }
 
     .enter-sub {
@@ -112,14 +120,14 @@
 
     .enter-btn {
       width: 100%;
-      background: linear-gradient(135deg, #ffb3c6, var(--primary-pink));
+      background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-blue-deep));
       color: #ffffff;
       border: none;
       padding: 12px;
-      border-radius: 20px;
-      font-size: 14px;
+      border-radius: 22px;
+      font-size: 14.5px;
       font-weight: 600;
-      box-shadow: 0 6px 16px rgba(255, 133, 162, 0.35);
+      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.35);
       cursor: pointer;
     }
 
@@ -144,7 +152,7 @@
       pointer-events: none;
       animation: floatUp 12s linear infinite;
       opacity: 0.85;
-      filter: drop-shadow(0 4px 8px rgba(255, 133, 162, 0.25));
+      filter: drop-shadow(0 4px 10px rgba(165, 243, 252, 0.45));
     }
 
     @keyframes floatUp {
@@ -161,18 +169,18 @@
       z-index: 2;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 15px;
     }
 
     /* ส่วนหัวโปรไฟล์ */
     .header-card {
-      background: var(--card-bg);
+      background: var(--card-glass);
       backdrop-filter: blur(14px);
       border-radius: 30px;
       padding: 12px 12px 22px;
       text-align: center;
       border: 2px solid #ffffff;
-      box-shadow: 0 10px 28px rgba(255, 133, 162, 0.2);
+      box-shadow: var(--glow-soft);
     }
 
     .banner-container {
@@ -180,7 +188,7 @@
       height: 145px;
       border-radius: 22px;
       overflow: hidden;
-      background: #ffe6ec;
+      background: #f1f5f9;
       border: 1.5px solid #ffffff;
     }
 
@@ -204,7 +212,7 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3.5px solid #ffffff;
-      box-shadow: 0 6px 18px rgba(255, 133, 162, 0.28);
+      box-shadow: 0 6px 18px rgba(165, 243, 252, 0.45), 0 0 0 2px var(--pastel-pink);
       background: #fff;
     }
 
@@ -219,8 +227,9 @@
     .store-name {
       font-size: 21px;
       font-weight: 700;
-      color: var(--primary-pink);
+      color: var(--pastel-pink-deep);
       letter-spacing: 0.4px;
+      text-shadow: 0 1px 8px rgba(244, 114, 182, 0.25);
     }
 
     .mini-custom-icon {
@@ -250,14 +259,14 @@
       gap: 6px;
       margin-top: 12px;
       background: #ffffff;
-      border: 1.5px solid var(--border-pink);
-      color: var(--primary-pink);
-      padding: 5px 16px;
+      border: 1.5px solid var(--border-pink-soft);
+      color: var(--pastel-pink-deep);
+      padding: 6px 18px;
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 179, 198, 0.3);
+      box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
       transition: all 0.2s ease;
     }
 
@@ -273,12 +282,12 @@
     }
 
     .link-card {
-      background: var(--card-bg);
+      background: var(--card-glass);
       backdrop-filter: blur(12px);
       border-radius: 22px;
-      padding: 15px 18px;
-      border: 2px solid #ffffff;
-      box-shadow: 0 6px 20px rgba(255, 133, 162, 0.15);
+      padding: 16px 20px;
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 20px rgba(165, 243, 252, 0.25);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -296,16 +305,23 @@
     .link-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .link-tag-icon {
-      font-size: 16px;
-      color: var(--primary-pink);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #fdf2f8, #e0f2fe);
+      border: 1px solid var(--border-pastel);
     }
 
     .link-arrow {
-      color: var(--primary-pink);
+      color: var(--pastel-blue-deep);
       font-size: 15px;
       font-weight: 700;
     }
@@ -313,7 +329,7 @@
     .footer-text {
       text-align: center;
       font-size: 12px;
-      color: var(--primary-pink);
+      color: var(--pastel-pink-deep);
       font-weight: 600;
       margin-top: 14px;
       letter-spacing: 0.5px;
@@ -408,7 +424,6 @@
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
 
-    // ดึงข้อมูล Realtime จากหลังบ้าน
     db.collection("jessy_site").doc("config").onSnapshot(doc => {
       if (doc.exists) {
         const d = doc.data();
@@ -461,7 +476,7 @@
       }
     }
 
-    // ภาพ PNG ลอยไปมา
+    // ภาพ PNG ลอย
     const floatBox = document.getElementById("floatContainer");
     const floatingImgSrc = "https://i.ibb.co/twf7DBcd/IMG-3955.png";
 
